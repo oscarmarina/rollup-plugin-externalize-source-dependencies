@@ -1,0 +1,49 @@
+{
+  "name": "@blockquote/rollup-plugin-externalize-source-dependencies",
+  "version": "1.0.0",
+  "description": "A Rollup plugin that allows for the replacement of dependencies with external dependencies without requiring users to manually mark them as external through the 'external' option.",
+  "keywords": [
+    "external",
+    "resolveId",
+    "source",
+    "rollup-plugin"
+  ],
+  "homepage": "https://github.com/oscarmarina/rollup-plugin-externalize-source-dependencies",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oscarmarina/rollup-plugin-externalize-source-dependencies"
+  },
+  "license": "MIT",
+  "author": "Oscar Marina",
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./dist/rollup-plugin-externalize-source-dependencies.js",
+      "require": "./dist/cjs/rollup-plugin-externalize-source-dependencies.cjs"
+    }
+  },
+  "main": "./dist/rollup-plugin-externalize-source-dependencies.js",
+  "module": "./dist/rollup-plugin-externalize-source-dependencies.js",
+  "source": "./src/rollupPluginExternalizeSourceDependencies.js",
+  "types": "./dist/rollupPluginExternalizeSourceDependencies.d.ts",
+  "files": [
+    "src",
+    "dist"
+  ],
+  "scripts": {
+    "prebuild": "rm -rf dist/*",
+    "build": "rollup -c && tsc",
+    "postbuild": "echo {\\\"type\\\": \\\"commonjs\\\"} > dist/cjs/package.json"
+  },
+
+  "devDependencies": {
+    "@rollup/plugin-terser": "^0.4.4",
+    "rollup": "^4.9.5",
+    "rollup-plugin-filesize": "^10.0.0",
+    "rollup-plugin-node-externals": "^6.1.2",
+    "typescript": "^5.3.3"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
